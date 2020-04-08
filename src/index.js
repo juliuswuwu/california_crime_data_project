@@ -1,10 +1,9 @@
 const d3 = require('d3');
+let height = 600;
+let width = 760;
 
-let height = 500;
-let width = 950;
 
-
-let projection = d3.geoAlbersUsa().translate([width/2, height/2]).scale([1000]);
+let projection = d3.geoMercator().center([-120, 37]).translate([width / 2, height / 2]).scale([width * 3.3]);
 let path = d3.geoPath().projection(projection);
 let h1 = document.getElementById('header');
 let textYear = document.getElementById('formatDataYear');
@@ -26,14 +25,14 @@ let CrimeTitle = function(str) {
     let words = [];
     
     for (let i = 0; i < string.length; i++){
-        let word = words[i];
+        let word = string[i];
         let firstChar = word[0].toUpperCase();
         let rest = word.slice(1).toLowerCase();
         fullWord = firstChar +rest;
         words.push(fullWord);
     }
     
-    return newWords.join(' ');
+    return words.join(' ');
 }
 
 const lowColor = '#f9f9f9';
@@ -41,7 +40,7 @@ const highColor = '#df002c';
 
 let d3Mapping = (year, type, lowColor, highColor) =>(
     d3.csv(`../clean_data/CaliforniaCrimeData-${year}.csv`, function(data){
-        h1.innerHTML = `California ${CrimeTitle(type)}* by States in ${year}`;
+        h1.innerHTML = `California ${CrimeTitle(type)}* by County in ${year}`;
         textYear.innerHTML = `${year}`;
 
         let dataArr = [];
@@ -83,7 +82,7 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                     div.transition()
                         .duration(200)
                         .style('opacity', .9);
-                    div.html(d.properties.name + "<br/>" + 'Rate: ' + d.properties.value)
+                    div.html(d.properties.NAME + "<br/>" + 'Rate: ' + d.properties.value)
                         .style('left', (event.clientX - 275) + 'px')
                         .style('top', (event.clientY - 80) + 'px');
                 })
@@ -136,11 +135,37 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                 .attr("class", "y axis")
                 .attr("transform", "translate(41,10)")
                 .call(yAxis)
-
         });
-
 
     })
 
-
 )
+
+const slider = document.getElementById('dataYear');
+
+const radios = document.getElementsByName('crime');
+let crimeRateType;
+
+for (let i = 0; i < radios.length; i++) {
+    radios[i].addEventListener('change', function (e) {
+        let radio = event.target;
+        if (radio.checked) {
+            crimeRateType = radio.value;
+            d3.selectAll('svg > *').remove();
+            d3Mapping(slider.value, crimeRateType, lowColor, highColor);
+        }
+    });
+
+    if (radios[i].checked) {
+        crimeRateType = radios[i].value;
+    }
+}
+
+    slider.oninput = function () {
+    d3.selectAll('svg > *').remove();
+    d3Mapping(slider.value, crimeRateType, lowColor, highColor);
+    }
+
+
+// Initializing
+d3Mapping(slider.value, crimeRateType, lowColor, highColor);

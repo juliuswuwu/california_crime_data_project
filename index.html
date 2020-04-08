@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="./src/styles.css">
+    <title>California crime data</title>
 </head>
 <body>
-    
+    <h1 id="header">California's Crime Rate by Counties</h1>
+    <div id='map' style="position: relative; width: 1000px; height: 600px;"></div>
+
+    <div class="crimeType">
+        <h2>Choose a crime type:</h2>
+
+        <label>
+            <input type="radio" name="crime" value='aggravated_assault'>
+            <span>Aggravated Assault</span>
+        </label>
+        <label>
+            <input type="radio" name="crime" value='forcible_rape'>
+            <span>Forcible Rape</span>
+        </label>
+        <label>
+            <input type="radio" name="crime" value='murder_and_non_negligent_manslaughter'>
+            <span>Murder And Non Negligent Manslaughter</span>
+        </label>
+        <label>
+            <input type="radio" name="crime" value='robbery'>
+            <span>Robbery</span>
+        </label>
+        <label>
+            <input type="radio" name="crime" checked="checked" value='total_crimes'>
+            <span>Total Crimes</span>
+        </label>
+    </div>
+
+    <div class="slider">
+        <h2>Year: <span id ='formatDataYear'></h2>
+        <input type="range" min="2000" max="2013" value="201" class="slider" id="dataYear">
+    </div>    
+
     <script src="dist/main.js"></script>
 </body>
 </html>
