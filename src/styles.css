@@ -8,16 +8,72 @@
 }
 
 .tooltip {
-	position: absolute;			
-    text-align: center;			
-    width: 100px;					
-    padding: 2px;				
-    font: 12px sans-serif;		
-    background: #bc2a66;	
-    color: white;
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;	
-    z-index: 1000;
+				width: 150px;
+				height: auto;
+				padding: 5px;
+				background-color: #fff;
+				color: #000;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				-webkit-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+				box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+				pointer-events: none;
+				position: absolute;
 				}
 				
+			.tooltip.hidden {
+				display: none;
+			}
+			
+			.tooltip p {
+			margin: 0;
+			font-size: 14px;
+			line-height: 18px;
+			}
+				
+
+            .slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 5px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #5d5b6a; /* background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 8px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #5d5b6a; /* background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 8px;
+
+}
+
+svg.legend {
+	position: absolute;
+	right: -20px;
+	top:75px;
+}
