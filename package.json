@@ -1,0 +1,23 @@
+{
+  "name": "cali-crime-data-javascript-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliuswuwu/california_crime_data_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliuswuwu/california_crime_data_project/issues"
+  },
+  "homepage": "https://github.com/juliuswuwu/california_crime_data_project#readme",
+  "dependencies": {
+    "d3": "^5.15.1"
+  }
+}
