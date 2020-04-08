@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles.css">
+    <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
     <title>California crime data</title>
 </head>
 <body>
     <h1 id="header">California's Crime Rate by Counties</h1>
-    <div id='map' style="position: relative; width: 1000px; height: 600px;"></div>
+    <!-- <div id='map' style="position: relative; width: 1000px; height: 600px;"></div> -->
 
     <div class="crimeType">
         <h2>Choose a crime type:</h2>
@@ -38,9 +39,9 @@
 
     <div class="slider">
         <h2>Year: <span id ='formatDataYear'></h2>
-        <input type="range" min="2000" max="2013" value="201" class="slider" id="dataYear">
+        <input type="range" min="2000" max="2013" value="2013" class="slider" id="dataYear">
     </div>    
-
+    <script src="src/index.js"></script>
     <script src="dist/main.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
-const d3 = require('d3');
+// const d3 = require('d3');
 let height = 600;
 let width = 760;
 
 
-let projection = d3.geoMercator().center([-120, 37]).translate([width / 2, height / 2]).scale([width * 3.3]);
-let path = d3.geoPath().projection(projection);
+let projection = d3.geo.mercator().center([-120, 37]).translate([width / 2, height / 2]).scale([width * 3.3]);
+let path = d3.geo.path().projection(projection);
 let h1 = document.getElementById('header');
 let textYear = document.getElementById('formatDataYear');
 
@@ -45,22 +45,22 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
 
         let dataArr = [];
         for (let i = 0; i < data.length; i++) {
-            dataArray.push(parseFloat(data[i][`${type}`]))
+            dataArr.push(parseFloat(data[i][`${type}`]))
         }
 
         let minValue = d3.min(dataArr);   // Lightest color for min Value
         let maxValue = d3.max(dataArr);  //darkest color for max Value
 
-        let colorRange = d3.scaleLinear().domain([minValue, maxValue]).range([lowColor, highColor])
+        let colorRange = d3.scale.linear().domain([minValue, maxValue]).range([lowColor, highColor])
 
         //loading geojson data with cali data
-        d3.json("../california_counties.json", function(jsonMap){
+        d3.json("../california_counties.json", function(json){
             for (let i = 0; i < data.length; i++){
                 let dataCounty = data[i].county;
                 let dataValue = data[i][`${type}`];
 
                 for (let j = 0; j < json.features.length; j++) {
-                    let jsonCounty = jsonMap.features[j].properties.name;
+                    let jsonCounty = json.features[j].properties.NAME;
 
                     if (dataCounty == jsonCounty) {
                         json.features[j].properties.value = dataValue;
@@ -77,7 +77,7 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                 .attr('d', path)
                 .style('stroke', "#fff")
                 .style('stroke-width', '1')
-                .style('fill', function (d) { return ramp(d.properties.value) })
+                .style('fill', function (d) { return colorRange(d.properties.value) })
                 .on('mouseover', function (d) {
                     div.transition()
                         .duration(200)
@@ -125,11 +125,11 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                 .style("fill", "url(#gradient)")
                 .attr("transform", "translate(0,10)");
 
-            let y = d3.scaleLinear()
+            let y = d3.scale.linear()
                 .range([h, 0])
-                .domain([minVal, maxVal]);
+                .domain([minValue, maxValue]);
 
-            let yAxis = d3.axisRight(y);
+            let yAxis = d3.svg.axis().scale(y).orient("right");
 
             key.append("g")
                 .attr("class", "y axis")
