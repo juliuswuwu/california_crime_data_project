@@ -39,7 +39,7 @@ const lowColor = '#f9f9f9';
 const highColor = '#df002c';
 
 let d3Mapping = (year, type, lowColor, highColor) =>(
-    d3.csv(`california_crime_data_project/clean_data/CaliforniaCrimeData-${year}.csv`, function(data){
+    d3.csv(`clean_data/CaliforniaCrimeData-${year}.csv`, function(data){
         h1.innerHTML = `California ${CrimeTitle(type)}* by County in ${year}`;
         textYear.innerHTML = `${year}`;
 
@@ -54,7 +54,7 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
         let colorRange = d3.scale.linear().domain([minValue, maxValue]).range([lowColor, highColor])
 
         //loading geojson data with cali data
-        d3.json("california_crime_data_project/california_counties.json", function(json){
+        d3.json("california_counties.json", function(json){
             for (let i = 0; i < data.length; i++){
                 let dataCounty = data[i].county;
                 let dataValue = data[i][`${type}`];
