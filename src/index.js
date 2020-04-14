@@ -163,51 +163,52 @@ for (let i = 0; i < radios.length; i++) {
 
     slider.oninput = function () {
     d3.selectAll('svg > *').remove();
+    d3.selectAll('table').remove();
     d3Mapping(slider.value, crimeRateType, lowColor, highColor);
-    // yearTable(slider.value);
+    yearTable(slider.value);
     }
 
 
 // Initializing
 d3Mapping(slider.value, crimeRateType, lowColor, highColor);
 
-// var tabulate = function (data, columns) {
-//     var table = d3.select('body').append('table')
-//     var thead = table.append('thead')
-//     var tbody = table.append('tbody')
+var tabulate = function (data, columns) {
+    var table = d3.select('body').append('table')
+    var thead = table.append('thead')
+    var tbody = table.append('tbody')
 
-//     thead.append('tr')
-//         .selectAll('th')
-//         .data(columns)
-//         .enter()
-//         .append('th')
-//         .text(function (d) { return d })
+    thead.append('tr')
+        .selectAll('th')
+        .data(columns)
+        .enter()
+        .append('th')
+        .text(function (d) { return d })
 
-//     var rows = tbody.selectAll('tr')
-//         .data(data)
-//         .enter()
-//         .append('tr')
+    var rows = tbody.selectAll('tr')
+        .data(data)
+        .enter()
+        .append('tr')
 
-//     var cells = rows.selectAll('td')
-//         .data(function (row) {
-//             return columns.map(function (column) {
-//                 return { column: column, value: row[column] }
-//             })
-//         })
-//         .enter()
-//         .append('td')
-//         .text(function (d) { return d.value })
+    var cells = rows.selectAll('td')
+        .data(function (row) {
+            return columns.map(function (column) {
+                return { column: column, value: row[column] }
+            })
+        })
+        .enter()
+        .append('td')
+        .text(function (d) { return d.value })
 
-//     return table;
-// }
+    return table;
+}
 
 
 
-// let yearTable = (year) => (
-// d3.csv(`./clean_data/CaliforniaCrimeData-${year}.csv`, function (data) {
-//     var columns = ['year', 'county', 'aggravated_assault', 'forcible_rape', 'murder_and_non_negligent_manslaughter', 'robbery', 'total_crimes']
-//     tabulate(data, columns)
-// })
-// )
+let yearTable = (year) => (
+d3.csv(`./clean_data/CaliforniaCrimeData-${year}.csv`, function (data) {
+    var columns = ['year', 'county', 'aggravated_assault', 'forcible_rape', 'murder_and_non_negligent_manslaughter', 'robbery', 'total_crimes']
+    tabulate(data, columns)
+})
+)
 
-// yearTable(slider.value);
+yearTable(slider.value);
