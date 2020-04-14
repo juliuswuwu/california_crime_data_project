@@ -34,7 +34,7 @@
 			}
 				
 
-            .slider {
+  .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
   width: 100%; /* Full-width */
@@ -77,3 +77,14 @@ svg.legend {
 	right: -20px;
 	top:75px;
 }
+
+
+table{
+  position: relative;
+
+}
+
+
+
+tr:nth-child(even) 
+{background-color: #f2f2f2;}
