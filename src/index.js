@@ -40,9 +40,7 @@ const lowColor = '#F8B6B5';
 
 let d3Mapping = (year, type, lowColor, highColor) =>(
     d3.csv(`./clean_data/CaliforniaCrimeData-${year}.csv`, function(data){
-        // h1.innerHTML = `California ${CrimeTitle(type)}* by County in ${year}`;
         textYear.innerHTML = `${year}`;
-
         let dataArr = [];
         for (let i = 0; i < data.length; i++) {
             dataArr.push(parseFloat(data[i][`${type}`]))
@@ -199,9 +197,7 @@ for (let i = 0; i < radios.length; i++) {
         
         return table;
     }
-    
-    
-    
+      
     let yearTable = (year) => (
         d3.csv(`./clean_data/CaliforniaCrimeData-${year}.csv`, function (data) {
             var columns = ['year', 'county', 'aggravated_assault', 'forcible_rape', 'murder_and_non_negligent_manslaughter', 'robbery', 'total_crimes']
@@ -209,6 +205,5 @@ for (let i = 0; i < radios.length; i++) {
         })
         )
         
-// Initializing
 d3Mapping(slider.value, crimeRateType, lowColor, highColor);
 yearTable(slider.value); 
