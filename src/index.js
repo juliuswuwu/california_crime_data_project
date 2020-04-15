@@ -36,7 +36,7 @@ let CrimeTitle = function(str) {
 }
 
 const highColor = '#C20000';
-const lowColor = '#F8B6B5';
+const lowColor = '#F2F6F7';
 
 let d3Mapping = (year, type, lowColor, highColor) =>(
     d3.csv(`./clean_data/CaliforniaCrimeData-${year}.csv`, function(data){
@@ -91,7 +91,7 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                 });
 
                 // data legend 
-                let w = 140, h= 200;
+            let w = 140, h= 200;
             let key = d3.select("div")
                 .append("svg")
                 .attr("width", w)
@@ -118,8 +118,8 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                 .attr("stop-opacity", 1);
 
             key.append("rect")
-                .attr("width", w - 100)
-                .attr("height", h)
+                .attr("width", w - 95)
+                .attr("height", h )
                 .style("fill", "url(#gradient)")
                 .attr("transform", "translate(0,10)");
 

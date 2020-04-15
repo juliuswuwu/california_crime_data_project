@@ -24,6 +24,7 @@ img{
   -webkit-transform: scale(1.2);
 }
 body{
+  background-color: rgba(173, 67, 5, 0.406);
   text-align: center;
   display: block;
   font-family: monospace;
