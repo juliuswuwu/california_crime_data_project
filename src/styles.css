@@ -1,6 +1,7 @@
 body{
   text-align: center;
   display: block;
+  font-family: monospace;
 }
 .map {
     display: block;
