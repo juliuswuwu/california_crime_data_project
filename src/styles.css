@@ -12,7 +12,7 @@ a {
 }
 
 img{
-  padding: 10px;
+  padding: 5px;
   -webkit-transform: scale(0.9);
 }
 
@@ -24,7 +24,7 @@ img{
   -webkit-transform: scale(1.2);
 }
 body{
-  background-color: rgba(173, 67, 5, 0.406);
+  background-color: rgba(228, 177, 111, 0.694);
   text-align: center;
   display: block;
   font-family: monospace;
@@ -93,7 +93,7 @@ div#map{
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: rgb(249, 249, 249);
+  background: rgba(175, 225, 181, 0.673);
   cursor: pointer;
 }
 
