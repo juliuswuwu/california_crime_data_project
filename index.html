@@ -6,15 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles.css">
     <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
-    <title>California crime data</title>
+    <title>California's crime data</title>
 </head>
 <body>
-    <h1 id="header">California's Crime Rate by Counties</h1>
-    <div id='map' style="position: relative; width: 1000px; height: 600px;"></div>
-
+    <h1 id="header">California's Crime Data</h1>
+    <div id='map' style="position:relative; width: 700px; height: 400px;"></div>
     <div class="crimeType">
         <h2>Choose a crime type:</h2>
-
+        
         <label>
             <input type="radio" name="crime" value='aggravated_assault'>
             <span>Aggravated Assault</span>
@@ -36,11 +35,17 @@
             <span>Total Crimes</span>
         </label>
     </div>
-
-    <div class="slider">
-        <h2>Year: <span id ='formatDataYear'></h2>
-        <input type="range" min="2000" max="2013" value="2013" class="slider" id="dataYear">
-    </div>    
+    
+    <h2>Year: <span id ='formatDataYear'></h2>
+    <div class="slider-container">
+        <div class="slider">
+            <input type="range" min="2000" max="2013" value="2013" class="slider" id="dataYear">
+        </div>    
+    </div>
+    
+    <div id= "table-container">
+    <div id='table'></div>
+    </div>
 
     <script src="dist/main.js"></script>
 </body>

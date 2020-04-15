@@ -1,6 +1,6 @@
 // const d3 = require('d3');
-let height = 600;
-let width = 760;
+let height = 450;
+let width = 600;
 
 
 let projection = d3.geo.mercator().center([-120, 37]).translate([width / 2, height / 2]).scale([width * 3.3]);
@@ -40,7 +40,7 @@ const lowColor = '#F8B6B5';
 
 let d3Mapping = (year, type, lowColor, highColor) =>(
     d3.csv(`./clean_data/CaliforniaCrimeData-${year}.csv`, function(data){
-        h1.innerHTML = `California ${CrimeTitle(type)}* by County in ${year}`;
+        // h1.innerHTML = `California ${CrimeTitle(type)}* by County in ${year}`;
         textYear.innerHTML = `${year}`;
 
         let dataArr = [];
@@ -82,9 +82,9 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                     div.transition()
                         .duration(200)
                         .style('opacity', .9);
-                    div.html(d.properties.NAME + "<br/>" + 'Rate: ' + d.properties.value)
-                        .style('left', (event.clientX - 275) + 'px')
-                        .style('top', (event.clientY - 80) + 'px');
+                    div.html(d.properties.NAME + "<br/>" + 'Cases: ' + d.properties.value)
+                        .style('left', 0 + 'px')
+                        .style('top', 0 + 'px');
                 })
                 .on('mouseout', function (d) {
                     div.transition()
@@ -93,7 +93,7 @@ let d3Mapping = (year, type, lowColor, highColor) =>(
                 });
 
                 // data legend 
-                let w = 140, h= 300;
+                let w = 140, h= 200;
             let key = d3.select("div")
                 .append("svg")
                 .attr("width", w)
