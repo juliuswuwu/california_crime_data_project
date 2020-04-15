@@ -41,35 +41,23 @@ div#map{
 }
 
 .svg {
-    background-color: white ;
-
+  background-color: white ;
 }
 
 .tooltip {
-				width: 150px;
-				height: auto;
-				padding: 5px;
-				background-color: #fff;
-				color: #000;
-				-webkit-border-radius: 5px;
-				-moz-border-radius: 5px;
-				border-radius: 5px;
-				-webkit-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
-				-moz-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
-				box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
-				pointer-events: none;
-				position: absolute;
-				}
+	width: 150px;
+	height: auto;
+	padding: 5px;
+	position: absolute;
+}
 				
-			.tooltip.hidden {
-				display: none;
-			}
+
 			
-			.tooltip p {
-			margin: 0;
-			font-size: 14px;
-			line-height: 18px;
-			}
+.tooltip p {
+	margin: 0;
+	font-size: 15px;
+	line-height: 20px;
+}
 				
   .slider-container{
     width: 750px;
