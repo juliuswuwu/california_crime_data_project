@@ -28,7 +28,7 @@ let CrimeTitle = function(str) {
         let word = string[i];
         let firstChar = word[0].toUpperCase();
         let rest = word.slice(1).toLowerCase();
-        fullWord = firstChar +rest;
+        fullWord = firstChar + rest;
         words.push(fullWord);
     }
     

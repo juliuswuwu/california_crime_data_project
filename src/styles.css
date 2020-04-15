@@ -1,10 +1,7 @@
 header{
-  width: auto;
   text-align: right; 
   margin: auto;
-  max-width: 850px;
-  width: 80%;
-  height: 50px;
+  max-width: 800px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
